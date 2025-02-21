@@ -1,0 +1,24 @@
+p{
+  color:green;
+}
+
+.myFont{
+  color:red;
+}
+
+.black{
+  color:black;
+}
+
+#fancy{
+  color:blue;
+}
+
+#large{
+  color:purple;
+}
+
+/* CSS Specificity: CSS rules which are narrower in scope take "priority" over others. id > class > element 
+   For conflicting CSS rules with the same specificity, CSS rules that are physically written later take
+   precedence over previous rules.
+*/
