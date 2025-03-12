@@ -5,12 +5,12 @@ body{
 a{
   text-decoration:none;
 }
-#click_me{
+.click_me{
   background-color:black;
   padding:5px;
   border-radius:5px;
 }
-#click_me:hover{
+.click_me:hover{
   color:white !important;
 }
 /* CSS Specificity
