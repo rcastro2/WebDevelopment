@@ -23,8 +23,8 @@ nav a{
   color:black;
   margin:0 10px 0 10px;
 }
-/* Start */
-#banner{
+
+.banner{
   background-color: black;
   color:white;
   padding:15px;
