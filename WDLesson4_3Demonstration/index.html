@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>WD Lesson 4.3</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <style>
+      #gradeTable{
+        margin:0 auto;
+        border-collapse:collapse;
+      }
+      th,td{
+        border: 1px solid black;
+        padding:5px;
+      }
+      th{
+        background-color:black;
+        color:white;
+      }
+      .subtopic{
+        font-style:italic;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="script.js"></script>
+    <div id="banner" class="container center">
+      <div style="text-align:center">
+        <h1>Decision</h1>
+        <h3 class="subtopic">Range Check and Else If</h3>
+      </div>
+    </div>
+    <div class="container subbanner">
+      <div>
+        <p>This example demonstrates using the logical && operator to check if a value is within a range as well as using "else if" can be used to avoid unnecessary decisions.</p>
+       </div>
+    </div>
+
+    <div class="container">
+      <div class="card">
+        <h3> Letter Grade </h3>
+        <p><span class="highlight">Scenario:</span>Allow the user to enter a numerical grade. Convert the grade to letter using the following table.</p>
+
+        <table id="gradeTable">
+          <tr><th>Range</th><th>Letter Grade</th></tr>
+          <tr><td>90 to 100</td><td>E</td></tr>
+          <tr><td>75 to 89</td><td>S</td></tr>
+          <tr><td>65 to 74</td><td>N</td></tr>
+          <tr><td>Less than 65</td><td>U</td></tr>
+        </table>
+        <hr>
+      
+        <input type="text" id="grade" placeholder="Enter Grade">
+        <input type="button" onclick="letterGrade()" value="Letter Grade"><div id="output"></div>
+      </div>
+     
+    </div>
+    <div id="footer" class="container center">
+      <h3>Lesson 4.3 Demonstration</h3>
+    </div> 
+  </body>
+</html>
+
+
