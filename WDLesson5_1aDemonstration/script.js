@@ -15,7 +15,7 @@ for(let i = 2; i <= 20; i += 2){
 //Example 3: Display 6 random numbers from 1 to 48
 //Resource: Look at the section about JavaScript Random Integer from the following link: https://www.w3schools.com/js/js_random.asp
 console.log("Example 3");
-for(let i = 0; i < 6; i++){
+for(let i = 0; i < 6; i+=1){
   let num = Math.floor(Math.random()*6+1);
   console.log(num);
 }
