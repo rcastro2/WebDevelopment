@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>WD Lesson 4.4</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <style>
+      #gradeTable{
+        margin:0 auto;
+        border-collapse:collapse;
+      }
+      th,td{
+        border: 1px solid black;
+        padding:5px;
+      }
+      th{
+        background-color:black;
+        color:white;
+      }
+      .subtopic{
+        font-style:italic;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="script.js"></script>
+    <div id="banner" class="container center">
+      <div style="text-align:center">
+        <h1>Random Numbers</h1>
+        <h3 class="subtopic"></h3>
+      </div>
+    </div>
+    <div class="container subbanner">
+      <div>
+        <p>This example demonstrates how to generate random integers and use them to display HTML.</p>
+       </div>
+    </div>
+
+    <div class="container">
+      <div class="card">
+        <h3> Math.random() </h3>
+        <input type="button" onclick="roll1()" value="Roll">
+        <div id="output1"></div>
+      </div>
+      <div class="card">
+        <h3>Random Integer between 1 and 10</h3>
+        <input type="button" onclick="roll2()" value="Roll">
+        <div id="output2"></div>
+      </div>
+      <div class="card">
+        <h3>Random Dice Roll</h3>
+        <input type="button" onclick="roll3()" value="Roll">
+        <div id="output3"></div>
+      </div>
+    </div>
+    <div id="footer" class="container center">
+      <h3>Lesson 4.4 Demonstration</h3>
+    </div> 
+  </body>
+</html>
+
+
