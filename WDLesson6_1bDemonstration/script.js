@@ -5,12 +5,11 @@ function init(){
   let build = "";
 
   for(let i = 0; i < heroes.length; i++){
-    build += `<div class="card">`;
-    build += `   <h3>${names[i]}</h3>`;
-    build += `   <img src="heroes/${heroes[i]}">`;
-    build += `</div>`;
+    build += `<div class="card">
+                 <h3>${names[i]}</h3>
+                 <img src="heroes/${heroes[i]}">
+              </div>`;
   }
- 
  
   output.innerHTML = build;
 }
