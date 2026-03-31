@@ -17,13 +17,12 @@ function example2(){
 
   for(let i = 0; i < teachers.length; i++){
     let teacher = teachers[i]
-    build += `<div class="card">`;
-    build += `     <h3>${teachers[i].course}</h3>`;
-    build += `     <img src="${teachers[i].image}">`;
-    build += `     <h3>${teachers[i].name}</h3>`;
-    build += `</div>`;
+    build += `<div class="card">
+                <h3>${teachers[i].course}</h3>
+                <img src="${teachers[i].image}">
+                <h3>${teachers[i].name}</h3>
+              </div>`;
   }
+  
   output.innerHTML = build;
-
 }
-
