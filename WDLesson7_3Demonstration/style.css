@@ -41,23 +41,12 @@ nav a:hover{
   right: 0;
   bottom:0px;
 }
- #leftPanel{
-   flex:1;
-   max-height:600px;;
-   overflow-y:scroll;
- }
-.card{
-  flex:1;
-  margin:10px;
-  padding:10px;
-  border:1px solid gray;
-  text-align:center;
-  background-color: beige;
-}
+
+
 #map{
   flex:1;
   width:90%;
-  height:400px;
+  height:calc(100vh - 300px);
   border-radius:10px;
   box-shadow:2px 2px 2px black;
 }
