@@ -22,15 +22,15 @@ function showMap(lat, lon){
 }
 
 // card() accepts JSON of one complaint and returns a card for the complaint
-function card( complaint ){ 
+function card( info ){ 
 
-  let location = [complaint.latitude, complaint.longitude];
+  let location = [info.latitude, info.longitude];
   let build = `<div class="card fitted">
-              <h3>${complaint.complaint_type}</h3>
-              <h5>${complaint.borough}</h5>
-              <p>${complaint.incident_zip}</p>
-              <p>${complaint.descriptor}</p><hr>
-              <p>${complaint.agency_name}<br>(${complaint.status})</p>
+              <h3>${info.complaint_type}</h3>
+              <h5>${info.borough}</h5>
+              <p>${info.incident_zip}</p>
+              <p>${info.descriptor}</p><hr>
+              <p>${info.agency_name}<br>(${info.status})</p>
               <input type="button" onclick="showMap( ${location} )" value="Map">
         </div>`;
   return build;
