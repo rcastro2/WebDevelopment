@@ -25,14 +25,21 @@ function showMap(lat, lon){
 function card( info ){ 
 
   let location = [info.latitude, info.longitude];
+  //Some complaints may not have latitudes and longitudes
+  //only create a button if these values exists
+  let mapButton = "";
+  if(info.latitude && info.longitude){
+    mapButton = `<input type="button" onclick="showMap( ${location} )" value="Map">`
+  }
+
   let build = `<div class="card fitted">
-              <h3>${info.complaint_type}</h3>
-              <h5>${info.borough}</h5>
-              <p>${info.incident_zip}</p>
-              <p>${info.descriptor}</p><hr>
-              <p>${info.agency_name}<br>(${info.status})</p>
-              <input type="button" onclick="showMap( ${location} )" value="Map">
-        </div>`;
+                  <h3>${info.complaint_type}</h3>
+                  <h5>${info.borough}</h5>
+                  <p>${info.incident_zip}</p>
+                  <p>${info.descriptor}</p><hr>
+                  <p>${info.agency_name}<br>(${info.status})</p>
+                  ${mapButton}
+              </div>`;
   return build;
 }
 
