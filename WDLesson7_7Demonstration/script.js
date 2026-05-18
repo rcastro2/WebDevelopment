@@ -31,14 +31,16 @@ window.onload = function(){
   //Discussion 5: Create a flipcard using the image of the hulk and the content created for the hulk
   createFlipCard("<img src='images/hulk.png'>",hulk,"flipcard_output");
 
-  /*
+  
 
   //Discussion 6: Create a simple collapsible section using just text
-  collapsible = new Collapsible("Click Me","Hi");
-  collapsible.render("collapsible_output")
+  createCollapsible("Click Me","Hi","collapsible_output");
+
 
   //Discussion 7: Create a collapsible section using the text "Hulk" and the hulk content
-  collapsible = new Collapsible("Hulk",hulk);
-  collapsible.render("collapsible_output")
-  */
+  createCollapsible("Hulk",hulk,"collapsible_output");
+
+
+
+ 
 }

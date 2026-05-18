@@ -1,58 +1,66 @@
 let $ = (selector) => document.querySelector(selector);
 
 //Concept Source - https://www.w3schools.com/howto/howto_css_modals.asp
-function createModal( text,content, container ){
-    this.button = document.createElement("div");
-    this.button.innerHTML = text;
-    this.button.addEventListener("click",()=>{
-      this.modal.style.display = "block";
-    })
+// Modals
+function createModal(text, content, container) {
+  const button = document.createElement("div");
+  button.innerHTML = text;
 
-    this.modal = document.createElement("div");
-    this.modal.setAttribute("class","modal");
+  const modal = document.createElement("div");
+  modal.setAttribute("class", "modal");
 
-    this.modal_content = document.createElement("div");
-    this.modal_content.setAttribute("class","modal-content");
+  const modal_content = document.createElement("div");
+  modal_content.setAttribute("class", "modal-content");
 
-    this.modal_header = document.createElement("div");
-    this.modal_header.setAttribute("class","modal-header");
+  const modal_header = document.createElement("div");
+  modal_header.setAttribute("class", "modal-header");
 
-    this.modal_body = document.createElement("div");
-    this.modal_body.setAttribute("class","modal-body");
-    console.log(typeof(this.content) == "object")
-    if(typeof(this.content) == "object"){
-      this.modal_body.append(content);
-    }else{
-      this.modal_body.innerHTML = content;
-    }
-    
-    this.closeButton = document.createElement("span");
-    this.closeButton.setAttribute("class","close");
-    this.closeButton.innerHTML = "&times";
-    this.closeButton.addEventListener("click",()=>{
-      this.modal.style.display = "none";
-    })
+  const modal_body = document.createElement("div");
+  modal_body.setAttribute("class", "modal-body");
 
-    this.modal_header.append(this.closeButton);
-    this.modal_content.append(this.modal_header);
-    this.modal_content.append(this.modal_body);
-    this.modal.append(this.modal_content);
-    console.log(this.modal)
+  // FIX: Check the local variable 'content', not 'this.content'
+  if (typeof content === "object" && content !== null) {
+    modal_body.append(content);
+  } else {
+    modal_body.innerHTML = content;
+  }
+  
+  const closeButton = document.createElement("span");
+  closeButton.setAttribute("class", "close");
+  closeButton.innerHTML = "&times;"; // FIX: Added missing semicolon
 
+  // Event Listeners
+  button.addEventListener("click", () => {
+    modal.style.display = "block";
+  });
 
-    $(`#${container}`).append(this.button)
-    $(`#${container}`).append(this.modal)
+  closeButton.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  // DOM Assembly
+  modal_header.append(closeButton);
+  modal_content.append(modal_header);
+  modal_content.append(modal_body);
+  modal.append(modal_content);
+
+  $(`#${container}`).append(button);
+  $(`#${container}`).append(modal);
+
+  // Return control methods like your other components
+  return {
+    open: () => modal.style.display = "block",
+    close: () => modal.style.display = "none",
+    element: modal
+  };
 }
 
-
-//Gallery
-//Concept Source - Custom made
+// Gallery
 function createGallery(images, container, speed = 1000) {
   let index = 0;
   let timer = null;
 
   const obj = document.createElement("img");
-
   obj.src = images[0];
 
   function next() {
@@ -61,6 +69,8 @@ function createGallery(images, container, speed = 1000) {
   }
 
   function play() {
+    // Clear any existing timer to prevent multiple loops running concurrently
+    stop(); 
     next();
     timer = setTimeout(play, speed);
   }
@@ -70,11 +80,8 @@ function createGallery(images, container, speed = 1000) {
   }
 
   obj.addEventListener("click", next);
-
- 
   $(`#${container}`).append(obj);
 
-  // autoplay automatically
   play();
 
   return {
@@ -84,9 +91,9 @@ function createGallery(images, container, speed = 1000) {
   };
 }
 
+// Flip Card
 function createFlipCard(front, back, container) {
   const obj = document.createElement("div");
-
   obj.setAttribute("class", "flip-card");
 
   obj.innerHTML = `
@@ -99,11 +106,49 @@ function createFlipCard(front, back, container) {
   }
 
   obj.addEventListener("click", flip);
-
   $(`#${container}`).append(obj);
 
   return {
     element: obj,
     flip
+  };
+}
+
+function createCollapsible(text, content, container) {
+  const button = document.createElement("button");
+  button.setAttribute("class", "collapsible");
+  button.innerHTML = text;
+
+  const div = document.createElement("div");
+  div.setAttribute("class", "content");
+
+  // Support both DOM elements and HTML strings for content consistency
+  if (typeof content === "object" && content !== null) {
+    div.append(content);
+  } else {
+    div.innerHTML = content;
+  }
+
+  // Toggle logic
+  function toggle() {
+    button.classList.toggle("active");
+    if (div.style.display === "block") {
+      div.style.display = "none";
+    } else {
+      div.style.display = "block";
+    }
+  }
+
+  button.addEventListener("click", toggle);
+
+  // Append directly to the container
+  $(`#${container}`).append(button);
+  $(`#${container}`).append(div);
+
+  // Return API control handles matching your architectural style
+  return {
+    button,
+    content: div,
+    toggle
   };
 }
