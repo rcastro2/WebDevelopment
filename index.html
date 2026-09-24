@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!-- Links to practical activities -->
+<html>
+  <head>
+ 
+    <title>WD Practicals</title>
+    <style>
+        html,body{
+            margin:0px;
+            height:100%;
+            font-family:Arial;
+        }
+        .container{
+            display:flex;
+        }
+        .center{
+            justify-content:center;
+            align-items: center;
+        }
+        #banner{
+            background-color:blue;
+            color:white;
+        }
+        #content{
+            padding:10px;
+            flex-direction: column;
+        }
+        #content a{
+            padding:5px;
+        }
+
+    </style>
+    <script>
+        let practicals = {
+            "1":["1_1","1_2","1_3","1_4","1_5"],
+        }
+        let build = "";
+
+        window.onload = function(){
+            let content = document.getElementById("content");
+            for(let unit in practicals){
+                build += `<h2> Unit ${unit} </h2>`;
+                for(let practical of practicals[unit]){
+                    build += `<a href="WDUnit${unit}/WDLesson${practical}Practical/">WDLesson${practical}Practical</a>`
+                }
+            }
+            content.innerHTML = build;
+        }
+    </script>
+  </head>
+  <body>
+    <div id="banner" class="container center">
+      <h1>Web Development Practical Activities</h1>
+    </div>
+    <div id="content" class="container">
+
+    </div>
+  </body>
+</html>
